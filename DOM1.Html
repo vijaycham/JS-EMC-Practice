@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dom1 Demo</title>
+  </head>
+  <body>
+    <input id="input1js" />
+    <input id="input2js" />
+    <button onclick="add()">Add</button>
+    <p id="ResultText">Result</p>
+  </body>
+  <script>
+    function add() {
+      let box1 = document.getElementById("input1js");
+      let box2 = document.getElementById("input2js");
+      box1Value = box1.value;
+      box2Value = box2.value;
+      let Result = Number(box1Value) + Number(box2Value);
+      let resultShow = document.getElementById("ResultText");
+      resultShow.textContent = "Result:" + Result;
+    }
+  </script>
+</html>

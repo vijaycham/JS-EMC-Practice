@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess the Number from 1 to 10</title>
+  </head>
+  <body>
+    <h1>Guess the Number from 1 to 10</h1>
+    <input id="inputvalue" />
+    <button onclick="check()">Check</button>
+    <p id="result">You are Wrong/Right</p>
+    <p id="score">Your Score:10</p>
+    <button onclick="resetButton()">Reset Game</button>
+  </body>
+  <script>
+    let resultShow = document.getElementById("result");
+    let scoreValue = document.getElementById("score");
+    let inputNumber = document.getElementById("inputvalue");
+    let score = 10;
+    let highScore = localStorage.getItem("highScore") || 0;
+    let buttonCheck = document.querySelector("button");
+
+    inputNumber.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        check();
+      }
+    });
+
+    function check() {
+      let enteredNumber = parseInt(inputNumber.value);
+      if (isNaN(enteredNumber) || enteredNumber < 1 || enteredNumber > 10) {
+        alert("Please enter a number between 1 and 10.");
+        return;
+      }
+      let randomNumber = Math.floor(Math.random() * 10 + 1);
+      if (randomNumber === enteredNumber) {
+        resultShow.textContent = "You are right!, you win";
+        alert("You Win!");
+        if (score > highScore) {
+          highScore = score;
+          localStorage.setItem("highscore", highScore);
+          alert("Congratulations! New High Score: " + highScore);
+        }
+      } else {
+        resultShow.textContent = "You are Wrong!, you lose";
+        score = score - 1;
+        if (score === 0) {
+          alert("Game Over");
+          inputNumber.disabled = true;
+          buttonCheck.disabled = true;
+        }
+        scoreValue.textContent = "Score:" + score;
+      }
+      {
+        inputNumber.value = "";
+      }
+    }
+    function resetButton() {
+      score = 10;
+      scoreValue.textContent = "Your Score: " + score;
+      resultShow.textContent = "You are Wrong/Right";
+      inputNumber.disabled = false;
+      buttonCheck.disabled = false;
+    }
+  </script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+    <button onclick="change()">Change colour</button>
+  </body>
+  <script>
+    let box = document.querySelector(".box");
+    function change() {
+      box.style.backgroundColor= "blue";
+      box.style.width = "900px";
+      box.style.transition="2s";
+    }
+  </script>
+</html>
