@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4</title>
+  </head>
+  <body>
+    <h1 id="h1">Task4</h1>
+    <button onclick="update(event)">VIJAY</button>
+    <button onclick="update(event)">SASI</button>
+    <button onclick="update(event)">BARATH</button>
+  </body>
+
+  <script>
+    let h1 = document.getElementById("h1");
+
+    function update() {
+      h1.textContent = event.target.textContent;
+    }
+  </script>
+</html>
