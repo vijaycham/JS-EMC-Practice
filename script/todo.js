@@ -10,7 +10,7 @@ let ul = document.getElementById("list-container");
         if (input.value.trim() === "") {
           return;
         }
-
+        
         let listItem = document.createElement("li");
         let deleteButton = document.createElement("button");
         listItem.innerHTML = input.value + " ";
@@ -23,3 +23,4 @@ let ul = document.getElementById("list-container");
       function deleteItem(event) {
         event.target.parentElement.remove();
       }
+
